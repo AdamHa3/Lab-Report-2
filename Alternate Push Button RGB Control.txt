@@ -2,7 +2,7 @@
 
 Alternate Push Button RGB control program code 
 
-Goal of the program : When the PB is pressed, the RGB has it's Red and Blue turned on. When the PB is not pressed, the RGB has it's Red and Green turned on 
+Program goal: When the push button (PB) is pressed, the RGB LED lights up Red and Blue; when the PB is not pressed, it lights up Red and Green
 
 Theme : Digital Input controlling Digital Output  
 
@@ -16,22 +16,22 @@ int pushButton = 2; //Associating pin 2 with the PB
  
  
 
-int red = 12; //Associating pin 12 with the Red color of the RGB      
+int red = 12; //Associating pin 12 with the colour Red of the RGB      
 
  
  
 
-int green = 11; //Associating pin 11 with the Green color of the RGB   
+int green = 11; //Associating pin 11 with the colour Green of the RGB   
 
  
  
 
-int blue = 10; //Associating pin 10 with the Blue color of the RGB  
+int blue = 10; //Associating pin 10 with the colour Blue of the RGB  
 
  
  
 
-// the setup function runs once when you press reset or power the board  
+// The setup function runs once when the board is powered on or reset.
 
 void setup() {  
 
@@ -48,7 +48,7 @@ pinMode(pushButton, INPUT_PULLUP); //The pushButton's pin is set as an INPUT_PUL
  
  
 
-// initialize digital pin 10, 11 and 12 as an output.    
+// set digital pins 10, 11, and 12 as outputs.  
 
  
  
@@ -74,66 +74,59 @@ pinMode(10, OUTPUT);
  
 
 // the loop routine runs over and over again forever:   
-
  
  
 
 void loop() {   
 
- 
- 
 
+ 
 int buttonState = digitalRead(pushButton); //read the value of PB as buttonState   
 
- 
- 
+
 
 // print out the state of the button and it's pin:   
 
- 
  
 
  Serial.print("buttonState = "); //prints onto the serial monitor " buttonState = "     
 
  
- 
 
  Serial.print(buttonState); //prints onto the serial monitor the value of the buttonState  
 
  
- 
 
- Serial.print("\t"); //makes a space in between both values    
+ Serial.print("\t"); //Adds a space between the two values.
+   
 
- 
  
 
  Serial.print("pushButton = "); //prints onto the serial monitor " pushButton = "     
 
  
+
+ Serial.println(pushButton); //Shows the push button’s value and starts a new line on the Serial Monitor.
  
 
- Serial.println(pushButton); //prints the value of the pushButton and then starts a new line on the serial monitor     
-
- 
  
 
- digitalWrite(red,1); // Reads that the buttonState is always always 1, because the Red color is always on  
-
- 
+ digitalWrite(red,1); //Detects that **buttonState** is always 1, since the colour Red remains on.
  
 
- digitalWrite(green,buttonState); //Will turn on when it reads that the buttonState is read as 1  
-
- 
  
 
- digitalWrite(blue,!buttonState); //Will turn on when it reads that the buttonState is read as 0  
+ digitalWrite(green,buttonState); //Turns on when **buttonState** is 1.
+
 
  
+
+ digitalWrite(blue,!buttonState); //Turns on when buttonState is 0.
+
  
 
- delay(1);  //gives a delay of 1ms in between each print in the serial monitor  
+ delay(1);  //adds a 1 ms pause between each print on the Serial Monitor.
+
 
  
  
