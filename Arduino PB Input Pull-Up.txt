@@ -1,66 +1,27 @@
-/*  
+/*
+Arduino Push Button (PB) Input Pull-Up
 
-Arduino PB (PB) Input Pull-Up program code 
+Program Goal: Detects the state of a push button (PB) using an internal pull-up resistor. 
+When pressed, the button reads 0; when not pressed, it reads 1, similar to a standard Arduino pull-up but with an internal resistor.
 
-The goal of the program is to detect the state of a push button (PB) using an internal pull-up resistor. When the button is pressed, its value should be 0, and when it is not pressed, its value should be 1, just like the standard Arduino pull-up configuration but with an internal resistor instead of an external one.
+Theme: Digital Input
+*/
 
-Theme: Digital Input  
+int pushButton = 7; // Assign pin 7 to the push button
 
- 
- 
+// setup() runs once when the board powers on or is reset
+void setup() {
+    pinMode(pushButton, INPUT);  // Set PB pin as input
+    Serial.begin(9600);          // Start Serial Monitor communication
+}
 
-*/  
+// loop() runs continuously in a never-ending cycle
+void loop() {
+    int buttonState = digitalRead(pushButton); // Read the push button state
 
-int pushButton = 7; // Pin 7 of the Arduino is assigned to the push button (PB).
+    // Display button state on the Serial Monitor
+    Serial.print("buttonState = "); 
+    Serial.println(buttonState);
 
- 
- 
-
-// The setup function runs once when the board powers on or is reset.
-
-void setup() {   
-
- 
- 
-
-pinMode(pushButton,INPUT); //PB is set as a Input   
-
- 
- 
-
-Serial.begin(9600); //Create connection to the serial monitor 
-
-}   
-
- 
- 
-
-// The loop function runs again and again forever.   
-
-void loop() {   
-
-  
-
-int buttonState = digitalRead(pushButton); //read the value of PB as buttonstate   
-
- 
- 
-
-Serial.print("buttonState = "); //prints onto the serial monitor " buttonState = "   
-
- 
- 
-
-Serial.println(buttonState); //displays the value of buttonState and moves to a new line on the Serial Monitor.
-
- 
- 
-
-delay(1); //gives a delay of 1ms in between each print in the serial monitor   
-
- 
- 
-
-} 
-
- 
+    delay(1); // Small delay between Serial Monitor prints
+}
