@@ -1,270 +1,73 @@
 /*  
-
-Light Chaser 1 code 
-
-Goal of the program : Turns on LED in a sequence where it's only one LED that is on at a time and then comes back from the last pin to the first pin.  
-
-Themes : Digital output 
-
-*/  
-
- 
- 
-
-// Putting anything before void setup and loop means that this will apply to both automatically 
-
- int timeDelay = 10; // create a variable named timeDelay with value 10 (milliseconds) 
-
- 
- 
-
-// the setup function runs once when you press reset or power the board  
-
-void setup() {  
-
- 
- 
-
-  // initialize digital pin 10, 11, 12, 13 as an output.  
-
- 
- 
-
-pinMode(10, OUTPUT);  
-
- 
- 
-
-pinMode(11, OUTPUT);  
-
- 
- 
-
-pinMode(12, OUTPUT);  
-
- 
- 
-
-pinMode(13, OUTPUT);  
-
- 
- 
-
-}  
-
- 
- 
-
-// the loop function runs over and over again forever  
-
-void loop() { // the sequence here is : LED on pin 10 → pin 11 → pin 12 → pin 13 → and then in reverse towards pin 10. This is done repeatedly 
-
- 
- 
-
- digitalWrite(10, 1); // turn the LED on 
-
- 
- 
-
- digitalWrite(11, 0); // keep the LED off 
-
- 
- 
-
- digitalWrite(12, 0);  // keep the LED off 
-
- 
- 
-
- digitalWrite(13,0); // keep the LED off 
-
- 
- 
-
- delay(timeDelay); // the LED connected to pin 10 will stay on depending on the value of "timeDelay", which in this case has been set to 10 ms 
-
- 
- 
-
- digitalWrite(10, 0);  // turn the LED off 
-
- 
- 
-
- digitalWrite(11, 1); // turn the LED on 
-
- 
- 
-
- digitalWrite(12, 0);   // keep the LED off  
-
- 
- 
-
- digitalWrite(13,0); // keep the LED off 
-
- 
- 
-
- delay(timeDelay); // LED connected to pin 11 will stay on for 10 ms 
-
- 
- 
-
- digitalWrite(10, 0); // keep the LED off 
-
- 
- 
-
- digitalWrite(11, 0); // turn the LED off 
-
- 
- 
-
- digitalWrite(12, 1);   // turn the LED on 
-
- 
- 
-
- digitalWrite(13,0); // keep the LED off 
-
- 
- 
-
- delay(timeDelay); // LED connected to pin 12 will stay on for 10 ms 
-
- 
- 
-
- digitalWrite(10, 0); // keep the LED off 
-
- 
- 
-
- digitalWrite(11, 0); // keep the LED off 
-
- 
- 
-
- digitalWrite(12, 0);   // turn the LED off 
-
- 
- 
-
- digitalWrite(13,1); // turn the LED on 
-
- 
- 
-
- delay(timeDelay);  // LED connected to pin 13 will stay on for 10 ms 
-
- 
- 
-
- digitalWrite(10, 0); // keep the LED off 
-
- 
- 
-
- digitalWrite(11, 0); // keep the LED off 
-
- 
- 
-
- digitalWrite(12, 0);   // turn the LED off 
-
- 
- 
-
- digitalWrite(13,1); // keep the LED on 
-
- 
- 
-
- delay(timeDelay);  // LED connected to pin 13 will stay on for 10 ms 
-
- 
- 
-
- digitalWrite(10, 0); // keep the LED off 
-
- 
- 
-
- digitalWrite(11, 0); // keep the LED off 
-
- 
- 
-
- digitalWrite(12, 1);   // turn the LED on 
-
- 
- 
-
- digitalWrite(13,0); // turn the LED off 
-
- 
- 
-
- delay(timeDelay);  // LED connected to pin 12 will stay on for 10 ms 
-
- 
- 
-
- digitalWrite(10, 0); // keep the LED off 
-
- 
- 
-
- digitalWrite(11, 1); // turn the LED on 
-
- 
- 
-
- digitalWrite(12, 0);   // turn the LED off  
-
- 
- 
-
- digitalWrite(13,0); // keep the LED off 
-
- 
- 
-
- delay(timeDelay); // LED connected to pin 11 will stay on for 10 ms 
-
- 
- 
-
- digitalWrite(10, 1); // turn the LED on 
-
- 
- 
-
- digitalWrite(11, 0); // turn the LED off 
-
- 
- 
-
- digitalWrite(12, 0);  // keep the LED off 
-
- 
- 
-
- digitalWrite(13,0); // keep the LED off 
-
- 
- 
-
- delay(timeDelay);  // LED connected to pin 10 will stay on for 10 ms 
-
- 
- 
-
-}  
-
- 
- 
-
- 
+Light Chaser 1 code
+
+Program Goal: Lights up LEDs in sequence, one at a time, moving from the first to the last pin and then back again.
+
+Theme: Digital output
+*/
+
+// Anything declared before setup() and loop() applies globally
+
+int timeDelay = 10; // Variable to set the LED delay time in milliseconds
+
+// setup() runs once when the board powers on or is reset
+void setup() {
+    // Set digital pins 10, 11, 12, and 13 as outputs
+    pinMode(10, OUTPUT);
+    pinMode(11, OUTPUT);
+    pinMode(12, OUTPUT);
+    pinMode(13, OUTPUT);
+}
+
+// loop() runs continuously in a never-ending cycle
+void loop() {
+    // Sequence: LED on pin 10 → 11 → 12 → 13 → back to 12 → 11 → 10, repeating
+
+    digitalWrite(10, 1); // Turn on LED at pin 10
+    digitalWrite(11, 0); // Keep LED at pin 11 off
+    digitalWrite(12, 0); // Keep LED at pin 12 off
+    digitalWrite(13, 0); // Keep LED at pin 13 off
+    delay(timeDelay);     // Keep LED on for the specified delay
+
+    digitalWrite(10, 0); // Turn off LED at pin 10
+    digitalWrite(11, 1); // Turn on LED at pin 11
+    digitalWrite(12, 0); // Keep LED at pin 12 off
+    digitalWrite(13, 0); // Keep LED at pin 13 off
+    delay(timeDelay);     // Keep LED on for the specified delay
+
+    digitalWrite(10, 0);
+    digitalWrite(11, 0);
+    digitalWrite(12, 1);
+    digitalWrite(13, 0);
+    delay(timeDelay);
+
+    digitalWrite(10, 0);
+    digitalWrite(11, 0);
+    digitalWrite(12, 0);
+    digitalWrite(13, 1);
+    delay(timeDelay);
+
+    digitalWrite(10, 0);
+    digitalWrite(11, 0);
+    digitalWrite(12, 0);
+    digitalWrite(13, 1);
+    delay(timeDelay);
+
+    digitalWrite(10, 0);
+    digitalWrite(11, 0);
+    digitalWrite(12, 1);
+    digitalWrite(13, 0);
+    delay(timeDelay);
+
+    digitalWrite(10, 0);
+    digitalWrite(11, 1);
+    digitalWrite(12, 0);
+    digitalWrite(13, 0);
+    delay(timeDelay);
+
+    digitalWrite(10, 1);
+    digitalWrite(11, 0);
+    digitalWrite(12, 0);
+    digitalWrite(13, 0);
+    delay(timeDelay);
+}
