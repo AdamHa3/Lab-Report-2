@@ -1,69 +1,26 @@
-/*  
+/*
+Arduino Push Button (PB) Pull-Down
 
-Arduino Push Button (PB) Pull-Down program code 
+Program Goal: The push button (PB) reads 0 when not pressed and 1 when pressed.
 
-Program goal: The push button (PB) reads **0** when not pressed and **1** when pressed.
+Theme: Digital Input
+*/
 
-Theme : Digital Input  
+int pushButton = 7; // Assign pin 7 of the Arduino to the push button (PB)
 
- 
- 
+// setup() runs once when the board powers on or is reset
+void setup() {
+    pinMode(pushButton, INPUT);  // Set PB pin as input
+    Serial.begin(9600);          // Establish Serial Monitor communication
+}
 
-*/  
+// loop() runs continuously in a never-ending cycle
+void loop() {
+    int buttonState = digitalRead(pushButton); // Read the push button state
 
-int pushButton = 7; // Assign pin 7 of the Arduino to the push button (PB).
+    // Display button state on the Serial Monitor
+    Serial.print("buttonState = "); 
+    Serial.println(buttonState);
 
- 
- 
-
-// The **setup** function runs once when the board is powered on or reset.
-
-void setup() {  
-
- 
- 
-
-pinMode(pushButton,INPUT); //PB is set as a Input  
-
- 
- 
-
-Serial.begin(9600); //Establish a connection to the Serial Monitor.
-
- 
- 
-
-}  
-
-// the loop function runs over and over again forever    
-
-void loop() {  
-
- 
- 
-
-int buttonState = digitalRead(pushButton); //read the value of PB as buttonstate  
-
- 
- 
-
-Serial.print("buttonState = "); //prints onto the serial monitor " buttonState = "  
-
- 
- 
-
-Serial.println(buttonState); //Displays the value of **buttonState** and moves to a new line on the Serial Monitor. 
-
- 
- 
-
-delay(1); //Adds a 1 ms delay between each print on the Serial Monitor. 
-
- 
-
-}  
-
- 
- 
-
- 
+    delay(1); // Small delay between Serial Monitor prints
+}
