@@ -1,136 +1,36 @@
 /*  
+Push Button Controlled RGB Program
 
-Push Button Controlled RGB program code 
+Program Goal: Turns the RGB LED off when the push button (PB) is not pressed, and turns it on displaying white when the PB is pressed.
 
-Goal of the program : When the PB is pressed, RGB is off. When the PB is pressed, RGB is on and displays white 
+Theme: Digital Input controlling Digital Output
+*/
 
-Theme : Digital Input controlling Digital Output  
+int pushButton = 2; // Connect the push button to pin 2
+int red = 12;        // Connect the Red color of RGB to pin 12
+int green = 11;      // Connect the Green color of RGB to pin 11
+int blue = 10;       // Connect the Blue color of RGB to pin 10
 
-*/  
+// setup() runs once when the board powers on or is reset
+void setup() {
+    Serial.begin(9600);             // Start Serial Monitor communication
+    pinMode(pushButton, INPUT_PULLUP); // Set push button as INPUT_PULLUP using Arduino's internal resistor
+    pinMode(12, OUTPUT);            // Set Red pin as output
+    pinMode(11, OUTPUT);            // Set Green pin as output
+    pinMode(10, OUTPUT);            // Set Blue pin as output
+}
 
- 
- 
+// loop() runs continuously in a never-ending cycle
+void loop() {
+    int buttonState = digitalRead(pushButton); // Read push button state
 
-int pushButton = 2; //Associating pin 2 with the PB 
+    // Print push button state and pin number to Serial Monitor
+    Serial.print("buttonState = "); 
+    Serial.print(buttonState);
+    Serial.print("\t"); 
+    Serial.print("pushButton = "); 
+    Serial.println(pushButton); 
 
- 
- 
-
-int red = 12; //Associating pin 12 with the Red color of the RGB     
-
- 
- 
-
-int green = 11; //Associating pin 11 with the Green color of the RGB  
-
- 
- 
-
-int blue = 10; //Associating pin 10 with the Blue color of the RGB  
-
- 
- 
-
-// the setup function runs once when you press reset or power the board 
-
-void setup() {  
-
- 
- 
-
- Serial.begin(9600); //Create connection to the serial monitor  
-
- 
- 
-
- pinMode(pushButton, INPUT_PULLUP); //The pushButton's pin is set as an INPUT_PULLUP, meaning that it used the resistance of the Arduino 
-
- 
- 
-
-// initialize digital pin 10, 11 and 12 as an output.   
-
- pinMode(12, OUTPUT);  
-
- 
- 
-
- pinMode(11, OUTPUT);  
-
- 
- 
-
- pinMode(10, OUTPUT);  
-
- 
- 
-
-}  
-
- 
- 
-
-// the loop routine runs over and over again forever:  
-
-void loop() {  
-
- 
- 
-
-int buttonState = digitalRead(pushButton); //read the value of PB as buttonState  
- 
-
- Serial.print("buttonState = "); //prints onto the serial monitor " buttonState = "    
-
- 
- 
-
- Serial.print(buttonState); //prints onto the serial monitor the value of the buttonState 
-
- 
- 
-
- Serial.print("\t"); //makes a space in between both values   
-
- 
- 
-
- Serial.print("pushButton = "); //prints onto the serial monitor " pushButton = "    
-
- 
- 
-
- Serial.println(pushButton); //prints the value of the pushButton and then starts a new line on the serial monitor    
-
- 
- 
-
- digitalWrite(red,buttonState); //Will turn on when it reads that the buttonState is read as 1 
-
- 
- 
-
- digitalWrite(green,buttonState); //Will turn on when it reads that the buttonState is read as 1 
-
- 
- 
-
- digitalWrite(blue,buttonState); //Will turn on when it reads that the buttonState is read as 1 
-
- 
- 
-
- delay(1); //gives a delay of 1ms in between each print in the serial monitor    
-
- 
- 
-
-  
-
- 
- 
- 
-
-}  
-
- 
+    // Set RGB LED colors based on push button state
+    digitalWrite(red, buttonState); 
+    digitalWrite(green, b
