@@ -2,7 +2,7 @@
 
 Arduino Push Button (PB) Pull-Up program code 
 
-Goal of the program : Have the push button display 0 on the serial monitor when it's pressed and 1 when not 
+Program goal: Show **0** on the Serial Monitor when the push button is pressed and **1** when it’s not.
 
 Theme : Digital Input  
 
@@ -11,12 +11,12 @@ Theme : Digital Input
  
  
 
-int pushButton = 7; // Associating the PB with pin 10  
+int pushButton = 7; //Connect the push button to pin 7.
 
  
  
 
-// the setup function runs once when you press reset or power the board   
+// The setup function runs once when the board powers on or is reset.
 
 void setup() {  
 
@@ -36,7 +36,7 @@ Serial.begin(9600); //Create connection to the serial monitor
  
  
 
-// the loop function runs over and over again forever   
+// The loop function runs repeatedly forever. 
 
 void loop() {  
 
@@ -58,9 +58,9 @@ Serial.println(buttonState); //prints the value of buttonState and then starts a
  
  
 
-delay(1); //gives a delay of 1ms in between each print in the serial monitor 
+delay(1); //Adds a 1 ms delay between each print to the Serial Monitor.
 
- 
+
  
 
 }  
