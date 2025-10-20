@@ -33,4 +33,5 @@ void loop() {
 
     // Set RGB LED colors based on push button state
     digitalWrite(red, buttonState); 
-    digitalWrite(green, b
+    digitalWrite(green, buttonState);
+}
